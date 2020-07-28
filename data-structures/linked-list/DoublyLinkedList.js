@@ -42,7 +42,6 @@ class DoublyLinkedList {
   // @cmplx:    O(n)
   set(data, index) {
     let foundNode = this.get(index);
-    console.log("Found node", foundNode.data);
     if (foundNode) {
       foundNode.data = data;
       return this;
