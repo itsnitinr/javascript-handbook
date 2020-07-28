@@ -12,6 +12,32 @@ class LinkedList {
     this.size = 0;
   }
 
+  // @desc:     Gets the node at given index
+  // @params:   Index
+  // @cmplx:    O(n)
+  get(index) {
+    if (index < 0 || index > this.size - 1) return undefined;
+    let count = 0;
+    let currentNode = this.head;
+    while (count !== index) {
+      currentNode = currentNode.next;
+      count++;
+    }
+    return currentNode;
+  }
+
+  // @desc:     Set new value of node at given index
+  // @params:   Data and index
+  // @cmplx:    O(n)
+  set(data, index) {
+    let foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.data = data;
+      return this;
+    }
+    return undefined;
+  }
+
   // @desc:     Insert a node to the end of the list
   // @params:   Data to be inserted
   // @cmplx:    O(1)
@@ -46,13 +72,12 @@ class LinkedList {
     if (index === 0) return this.prepend(data);
     if (index === this.size) return this.append(data);
 
-    let currentNode = this.head;
-    for (let i = 0; i < index - 1; i++) {
-      currentNode = currentNode.next;
-    }
+    let beforeNode = this.get(index - 1);
     const newNode = new Node(data);
-    newNode.next = currentNode.next;
-    currentNode.next = newNode;
+    let afterNode = beforeNode.next;
+
+    newNode.next = afterNode;
+    beforeNode.next = newNode;
     this.size++;
     return this;
   }
@@ -93,12 +118,12 @@ class LinkedList {
     if (index === 0) return this.removeHead();
     if (index === this.size - 1) return this.removeTail();
 
-    let currentNode = this.head;
-    for (let i = 0; i < index - 1; i++) {
-      currentNode = currentNode.next;
-    }
-    const removedNode = currentNode.next;
-    currentNode.next = currentNode.next.next;
+    let beforeNode = this.get(index - 1);
+    const removedNode = beforeNode.next;
+    let afterNode = removedNode.next;
+
+    beforeNode.next = afterNode;
+    removedNode.next = null;
     this.size--;
     return removedNode;
   }
@@ -115,6 +140,7 @@ class LinkedList {
       prevNode = currentNode;
       currentNode = nextNode;
     }
+    return this;
   }
 
   // @desc:     Prints all the data in list
