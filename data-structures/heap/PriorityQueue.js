@@ -25,7 +25,7 @@ class PriorityQueue {
       let parentIndex = Math.floor((index - 1) / 2);
       let parent = this.values[parentIndex];
       if (element.priority >= parent.priority) break;
-      // If parent element is smaller than new element, swap
+      // If parent's priority is lower than element's priority, swap
       this.values[parentIndex] = element;
       this.values[index] = parent;
       index = parentIndex;
@@ -49,7 +49,7 @@ class PriorityQueue {
       let leftChild, rightChild;
       let swap = null;
 
-      // Swap with left child if it's greater
+      // Swap with left child if element has lower priority
       if (leftChildIndex < this.values.length) {
         leftChild = this.values[leftChildIndex];
         if (leftChild.priority < element.priority) {
@@ -57,7 +57,7 @@ class PriorityQueue {
         }
       }
 
-      // Swap with right child if it's greater than element and left child
+      // Swap with right child if element has lower priority
       if (rightChildIndex < this.values.length) {
         rightChild = this.values[rightChildIndex];
         if (
