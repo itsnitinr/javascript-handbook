@@ -33,7 +33,7 @@ function depthFirstSearch(startVertex) {
   const stack = [startVertex];
   let currentVertex;
 
-  // Push the start vertex into the stack
+  // Starting vertex will be visited by default
   visited[startVertex] = true;
 
   // Iterate until stack is not empty
