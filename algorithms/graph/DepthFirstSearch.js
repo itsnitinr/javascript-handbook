@@ -1,3 +1,4 @@
+// RECURSIVE APPROACH
 function depthFirstSearch(startVertex) {
   const result = [];
   const visited = {};
@@ -22,5 +23,33 @@ function depthFirstSearch(startVertex) {
 
   // Invoke the recursive function and return result
   dfsRecursive(startVertex);
+  return result;
+}
+
+// ITERATIVE APPROACH
+function depthFirstSearch(startVertex) {
+  const result = [];
+  const visited = {};
+  const stack = [startVertex];
+  let currentVertex;
+
+  // Push the start vertex into the stack
+  visited[startVertex] = true;
+
+  // Iterate until stack is not empty
+  while (stack.length) {
+    // Visit the neighbour and add it to result
+    currentVertex = stack.pop();
+    result.push(currentVertex);
+
+    // For each neighbour, add to stack if not visited
+    this.adjacencyList[currentVertex].forEach((neighbour) => {
+      if (!visited[neighbour]) {
+        visited[neighbour] = true;
+        stack.push(neighbour);
+      }
+    });
+  }
+
   return result;
 }
