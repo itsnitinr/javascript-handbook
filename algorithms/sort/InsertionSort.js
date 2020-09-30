@@ -1,4 +1,4 @@
-// @input:      Array and value to search for
+// @input:      Array 
 // @output:     Array sorted in ascending / descending order
 // @time-cplx:  O(n2)
 // @spc-cplx:   O(1)
