@@ -6,7 +6,7 @@
 
 // ITERATIVE APPROACH
 
-function bubbleSort(ar){
+function bubbleSort(ar){     //  This function sorts in ascending order
     
     for (var i = ar.length-1; i > 0; i--) {
         var element = ar[i], pos = i;
