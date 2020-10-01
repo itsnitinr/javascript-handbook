@@ -1,24 +1,19 @@
-// @input:      Array 
+// @input:      Array
 // @output:     Array sorted in ascending / descending order
-// @time-cplx:  O(n2)
+// @time-cplx:  O(n^2)
 // @spc-cplx:   O(1)
 
-
-// ITERATIVE APPROACH
-
-function insertionSort(ar){     //  This function sorts in ascending order
-    
-    for (let i = 1; i < ar.length; i++) {
-        var element = ar[i];
-
-        var j = i-1;
-        while(j >= 0){
-            if(ar[j] > element)
-            ar[j+1] = ar[j];
-
-            else break;
-            j--;
-        }
-        ar[j+1] = element;
+function insertionSort(array) {
+  // This function sorts in ascending order
+  for (let i = 1; i < array.length; i++) {
+    var element = array[i];
+    var j = i - 1;
+    while (j >= 0) {
+      if (array[j] > element) array[j + 1] = array[j];
+      else break;
+      j--;
     }
+    array[j + 1] = element;
+  }
+  return array;
 }

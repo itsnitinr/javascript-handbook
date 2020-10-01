@@ -1,4 +1,4 @@
-// @input:      Random array, start index (0), end index (len - 1)
+// @input:      Random array
 // @output:     Sorted Array
 // @time-cplx:  O(n^2)
 // @spc-cplx:   O(1)
@@ -18,4 +18,4 @@ function selectionSort(array) {
     }
   }
   return array;
-};
+}

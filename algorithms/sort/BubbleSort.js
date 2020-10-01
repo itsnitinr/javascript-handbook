@@ -1,25 +1,23 @@
-// @input:      Array 
-// @output:     Array sorted in ascending / descending order
-// @time-cplx:  O(n2)
+// @input:      An array
+// @output:     Sorted array
+// @time-cplx:  O(n^2)
 // @spc-cplx:   O(1)
 
-
-// ITERATIVE APPROACH
-
-function bubbleSort(ar){     //  This function sorts in ascending order
-    
-    for (var i = ar.length-1; i > 0; i--) {
-        var element = ar[i], pos = i;
-        
-        for(var j = 0; j < i; j++){
-            if(ar[j] > element){
-                element = ar[j];
-                pos = j;
-            }
-        }
-    
-        var tmp = ar[i];
-        ar[i] = ar[pos];
-        ar[pos] = tmp;
+function bubbleSort(array) {
+  let temp;
+  for (let i = 0; i < array.length - 1; i++) {
+    let swapCount = 0;
+    for (let j = 0; j < array.length - 1 - i; j += 1) {
+      if (array[j] > array[j + 1]) {
+        temp = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = temp;
+        swapCount += 1;
+      }
     }
+    if (swapCount === 0) {
+      break;
+    }
+  }
+  return array;
 }
